@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colorful Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: #6c5ce7; /* Pastel purple */
+        }
+        .calculator {
+            width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f7f1e3; /* Pastel yellow */
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"] {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+        input[type="button"] {
+            width: calc(33.33% - 10px);
+            padding: 10px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        input[type="button"]:hover {
+            background-color: #ddd;
+        }
+        .number-button {
+            background-color: #ab9f9f; /* Pastel pink */
+            color: white;
+        }
+        .operator-button {
+            background-color: #a3c7f4; /* Pastel blue */
+            color: white;
+        }
+        .clear-button {
+            background-color: #e74c3c; /* Pastel red */
+            color: white;
+        }
+        .equals-button {
+            background-color: #e74c3c; /* Pastel gray */
+            color: white;
+        }
+        .backspace-button {
+            background-color: #e74c3c; /* Custom color, you can replace it with your desired color */
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Simple Calculator</h1>
+
+<div class="calculator">
+    <input type="text" id="display" disabled>
+    <br>
+    <input type="button" class="number-button" value="1" onclick="addToDisplay('1')">
+    <input type="button" class="number-button" value="2" onclick="addToDisplay('2')">
+    <input type="button" class="number-button" value="3" onclick="addToDisplay('3')">
+    <input type="button" class="number-button" value="4" onclick="addToDisplay('4')">
+    <br>
+    <input type="button" class="number-button" value="5" onclick="addToDisplay('5')">
+    <input type="button" class="number-button" value="6" onclick="addToDisplay('6')">
+    <input type="button" class="number-button" value="7" onclick="addToDisplay('7')">
+    <input type="button" class="number-button" value="8" onclick="addToDisplay('8')">
+    <br>
+    <input type="button" class="number-button" value="9" onclick="addToDisplay('9')">
+    <input type="button" class="number-button" value="0" onclick="addToDisplay('0')">
+    <br>
+    <input type="button" class="number-button" value="." onclick="addToDisplay('.')">
+    <input type="button" class="operator-button" value="+" onclick="addToDisplay('+')">
+    <input type="button" class="operator-button" value="/" onclick="addToDisplay('/')">
+    <input type="button" class="operator-button" value="-" onclick="addToDisplay('-')">
+    <input type="button" class="operator-button" value="*" onclick="addToDisplay('*')">
+    <input type="button" class="equals-button" value="=" onclick="calculate()">
+    <br>
+    <input type="button" class="clear-button" value="C" onclick="clearDisplay()">
+    <input type="button" class="backspace-button" value="&#9003;" onclick="backspace()">
+</div>
+
+<script>
+    function addToDisplay(value) {
+        document.getElementById('display').value += value;
+    }
+
+    function calculate() {
+        var expression = document.getElementById('display').value;
+        var result = eval(expression);
+        document.getElementById('display').value = result;
+    }
+
+    function clearDisplay() {
+        document.getElementById('display').value = '';
+    }
+
+    function backspace() {
+        var display = document.getElementById('display');
+        display.value = display.value.slice(0, -1);
+    }
+</script>
+
+</body>
+</html>
